@@ -9,7 +9,6 @@ function createHearts() {
         heart.style.width = size + 'px';
         heart.style.height = size + 'px';
         heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        // Optional small random rotation
         heart.style.transform = `rotate(${Math.random()*20 - 10}deg)`;
         container.appendChild(heart);
         setTimeout(() => heart.remove(), 5000);
@@ -28,13 +27,12 @@ function updateTimer() {
     document.getElementById('minutes').innerText = Math.floor((diff / (1000*60)) % 60);
     document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60);
 }
-
 function startTimer() {
     updateTimer();
     setInterval(updateTimer, 1000);
 }
 
-// ===== Unlock Gift and Play Music =====
+// ===== Unlock Gift & Play Music =====
 function checkDate() {
     const birthdate = document.getElementById("birthdate").value;
     if (!birthdate) { alert("Please enter your birthdate!"); return; }
@@ -57,3 +55,12 @@ function unlockLetter() {
 function blowCandle() {
     alert("✨ Candle blown! Make your wish! ✨");
 }
+
+// ===== Flip Cards =====
+const flipCards = document.querySelectorAll('.flip-card-inner');
+flipCards.forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+});
+
