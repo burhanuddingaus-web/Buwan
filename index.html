@@ -7,10 +7,10 @@
 </head>
 <body>
 
-    <!-- Heart rain container -->
+    <!-- Heart Rain Container -->
     <div id="heart-container"></div>
 
-    <!-- Audio (no autoplay, only plays after button click) -->
+    <!-- Background Music -->
     <audio id="bg-music" src="song.mp3" loop></audio>
 
     <!-- Login Screen -->
@@ -23,7 +23,7 @@
         <div class="footer-note">Created with ❤️ for You</div>
     </div>
 
-    <!-- Main Content (Hidden Initially) -->
+    <!-- Main Content -->
     <div id="main-content" style="display:none;">
         <div class="green-header">
             <h2>Happy Birthday Love!</h2>
@@ -33,12 +33,11 @@
         </div>
 
         <div class="card cake-section">
-            <img src="images/cake.png.png" id="cake" alt="Birthday Cake" style="width:200px;">
+            <img src="images/cake.png.png" id="cake" alt="Birthday Cake">
             <h3>Make a Wish! ✨</h3>
             <button onclick="blowCandle()">Blow out the candle!</button>
         </div>
 
-        <!-- Anniversary Unlock -->
         <div class="card">
             <h3>Unlock My Love Letter 💖</h3>
             <p>Enter our anniversary date:</p>
@@ -47,7 +46,6 @@
             <button onclick="unlockLetter()">Unlock Letter 💌</button>
         </div>
 
-        <!-- Love Letter Section (Hidden Initially) -->
         <div class="card love-letter-section" id="love-letter" style="display:none;">
             <h3>My Love Letter 💌</h3>
             <p class="love-letter-text">
@@ -83,64 +81,6 @@
         </div>
     </div>
 
-    <script>
-        // Heart Rain
-        function createHearts() {
-            const container = document.getElementById('heart-container');
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-
-                // Random horizontal position
-                heart.style.left = Math.random() * 100 + 'vw';
-
-                // Random size
-                const size = Math.random() * 20 + 10;
-                heart.style.width = size + 'px';
-                heart.style.height = size + 'px';
-
-                // Random animation duration
-                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
-
-                container.appendChild(heart);
-
-                // Remove heart after falling
-                setTimeout(() => heart.remove(), 5000);
-            }, 200);
-        }
-
-        // Start hearts on page load
-        window.onload = createHearts;
-
-        // Unlock gift and play music
-        function checkDate() {
-            const birthdate = document.getElementById("birthdate").value;
-            if (!birthdate) {
-                alert("Please enter your birthdate!");
-                return;
-            }
-            document.getElementById("login-screen").style.display = "none";
-            document.getElementById("main-content").style.display = "block";
-
-            const music = document.getElementById("bg-music");
-            music.play().catch(err => console.log("Music will play after interaction."));
-        }
-
-        // Unlock Love Letter
-        function unlockLetter() {
-            const anniversary = document.getElementById("anniversaryDate").value;
-            if (!anniversary) {
-                alert("Please enter our anniversary date!");
-                return;
-            }
-            document.getElementById("love-letter").style.display = "block";
-        }
-
-        // Blow Candle
-        function blowCandle() {
-            alert("✨ Candle blown! Make your wish! ✨");
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
