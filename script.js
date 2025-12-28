@@ -9,11 +9,30 @@ function createHearts() {
         heart.style.width = size + 'px';
         heart.style.height = size + 'px';
         heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        // Optional small random rotation
+        heart.style.transform = `rotate(${Math.random()*20 - 10}deg)`;
         container.appendChild(heart);
         setTimeout(() => heart.remove(), 5000);
     }, 200);
 }
 window.onload = createHearts;
+
+// ===== Timer =====
+const startDate = new Date(2022, 11, 3); // December = 11
+function updateTimer() {
+    const now = new Date();
+    const diff = now - startDate;
+
+    document.getElementById('days').innerText = Math.floor(diff / (1000*60*60*24));
+    document.getElementById('hours').innerText = Math.floor((diff / (1000*60*60)) % 24);
+    document.getElementById('minutes').innerText = Math.floor((diff / (1000*60)) % 60);
+    document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60);
+}
+
+function startTimer() {
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
 
 // ===== Unlock Gift and Play Music =====
 function checkDate() {
@@ -24,6 +43,7 @@ function checkDate() {
     document.getElementById("main-wrapper").style.display = "flex";
 
     document.getElementById("bg-music").play().catch(() => {});
+    startTimer();
 }
 
 // ===== Unlock Love Letter =====
