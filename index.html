@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen">
+        <div class="emoji-header">✨ 🎁 ✨</div>
+        <h1>Special Surprise</h1>
+        <p>Enter your birthdate to unlock your gift!</p>
+        <input type="date" id="birthdate">
+        <button onclick="checkDate()">Unlock My Gift</button>
+        <div class="footer-note">Created with ❤️ for You</div>
+    </div>
+
+    <div id="main-content" style="display:none;">
+        
+        <div class="green-header">
+            <h2>Happy Birthday Love!</h2>
+            <p>To My Handsome Boyfriend A'in </p>
+            <p class="subtext">On this special day, I celebrate you and all the beautiful moments we share together</p>
+            <div class="emojis">✨ ❤️ ✨</div>
+        </div>
+        
+        <div class="card cake-section">
+            <img src="images/cake.png.png" id="cake" alt="Birthday Cake" style="width:200px;">
+            <h3>Make a Wish! ✨</h3>
+            <button onclick="blowCandle()">Blow out the candle!</button>
+        </div>
+        
+        <!-- Anniversary Unlock -->
+<div class="card">
+    <h3>Unlock My Love Letter 💖</h3>
+    <p>Enter our anniversary date:</p>
+    <input type="date" id="anniversaryDate">
+    <br><br>
+    <button onclick="unlockLetter()">Unlock Letter 💌</button>
+</div>
+
+        
+<!-- Love Letter Section (Hidden Initially) -->
+<div class="card love-letter-section" id="love-letter" style="display:none;">
+    <h3>My Love Letter 💌</h3>
+    <p class="love-letter-text">
+        My love,<br><br>
+        From the moment you came into my life, everything became brighter.
+        Thank you for your smile, your patience, and your love.
+        Every day with you is a blessing, and I promise to cherish you
+        today, tomorrow, and always.<br><br>
+        Happy Birthday, my love. ❤️
+    </p>
+</div>
+
+
+        <div class="card timer-section">
+            <h3>Time Since You Said "YES" 💍</h3>
+            <div id="timer">
+                <span id="days">0</span> Days 
+                <span id="hours">0</span> Hours 
+                <span id="minutes">0</span> Mins 
+                <span id="seconds">0</span> Secs
+            </div>
+        </div>
+
+        <div class="gallery-container">
+            <h3>Our Precious Memories 📸</h3>
+            <div class="photo-grid">
+                <div class="photo-card"><img src="images/pic1.jpeg"></div>
+                <div class="photo-card"><img src="images/pic2.jpeg"></div>
+                <div class="photo-card"><img src="images/pic3.jpeg"></div>
+                <div class="photo-card"><img src="images/pic4.jpeg"></div>
+                <div class="photo-card"><img src="images/pic5.jpeg"></div>
+                <div class="photo-card"><img src="images/pic6.jpeg"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
