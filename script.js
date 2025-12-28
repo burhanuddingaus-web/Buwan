@@ -1,21 +1,22 @@
-// ===== Heart Rain =====
+// ===== Heart Rain (using emojis) =====
 function createHearts() {
     const container = document.getElementById('heart-container');
     setInterval(() => {
-        const heart = document.createElement('div');
+        const heart = document.createElement('span');
         heart.classList.add('heart');
+        heart.innerText = '❤️'; // <-- Heart emoji
+        heart.style.position = 'absolute';
         heart.style.left = Math.random() * 100 + 'vw';
-        const size = Math.random() * 20 + 10;
-        heart.style.width = size + 'px';
-        heart.style.height = size + 'px';
+        const size = Math.random() * 30 + 20; // bigger size for emoji
+        heart.style.fontSize = size + 'px';
         heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        // Optional small random rotation
-        heart.style.transform = `rotate(${Math.random()*20 - 10}deg)`;
+        heart.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
         container.appendChild(heart);
         setTimeout(() => heart.remove(), 5000);
     }, 200);
 }
 window.onload = createHearts;
+
 
 // ===== Timer =====
 const startDate = new Date(2022, 11, 3); // December = 11
