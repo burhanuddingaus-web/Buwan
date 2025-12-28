@@ -1,4 +1,4 @@
-// Heart Rain
+// ===== Heart Rain =====
 function createHearts() {
     const container = document.getElementById('heart-container');
     setInterval(() => {
@@ -15,26 +15,25 @@ function createHearts() {
 }
 window.onload = createHearts;
 
-// Unlock Gift and Play Music
+// ===== Unlock Gift and Play Music =====
 function checkDate() {
     const birthdate = document.getElementById("birthdate").value;
     if (!birthdate) { alert("Please enter your birthdate!"); return; }
+
     document.getElementById("login-screen").style.display = "none";
-    const main = document.getElementById("main-content");
-    main.style.display = "flex";
-    main.style.flexDirection = "column";
-    main.style.alignItems = "center";
+    document.getElementById("main-wrapper").style.display = "flex";
+
     document.getElementById("bg-music").play().catch(() => {});
 }
 
-// Unlock Love Letter
+// ===== Unlock Love Letter =====
 function unlockLetter() {
     const anniversary = document.getElementById("anniversaryDate").value;
     if (!anniversary) { alert("Please enter our anniversary date!"); return; }
     document.getElementById("love-letter").style.display = "block";
 }
 
-// Blow Candle
+// ===== Blow Candle =====
 function blowCandle() {
     alert("✨ Candle blown! Make your wish! ✨");
 }
