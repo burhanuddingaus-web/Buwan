@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <audio id="bg-music" src="song.mp3" loop></audio>
+
+<script>
+  // Play the song when the user clicks anywhere on the page
+  document.addEventListener("click", function () {
+    const music = document.getElementById("bg-music");
+    music.play();
+  }, { once: true });
+</script>
+
     <div id="login-screen">
         <div class="emoji-header">✨ 🎁 ✨</div>
         <h1>Special Surprise</h1>
