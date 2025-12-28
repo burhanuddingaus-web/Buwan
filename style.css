@@ -5,7 +5,7 @@ body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: linear-gradient(135deg, #fceef5 0%, #e8f5e9 100%);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
@@ -51,12 +51,30 @@ body {
     100% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
 }
 
-/* Cards & Sections */
-#login-screen, #main-content {
+/* Login Screen */
+#login-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     z-index: 1;
+}
+
+/* Main Wrapper (centers main content) */
+#main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Cards & Sections */
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #login-screen, .card {
