@@ -78,5 +78,16 @@
     </div>
 
     <script src="script.js"></script>
+
+    <audio id="bg-music" src="song.mp3"></audio>
+
+<script>
+    
+  document.addEventListener("click", function () {
+    const music = document.getElementById("bg-music");
+    music.play();
+  }, { once: true });
+</script>
+
 </body>
 </html>
