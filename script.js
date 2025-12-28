@@ -57,11 +57,11 @@ function blowCandle() {
 }
 
 // ===== Flip Cards =====
-const flipCards = document.querySelectorAll('.flip-card-inner');
-flipCards.forEach(card => {
-    card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
+document.addEventListener('DOMContentLoaded', () => {
+    const flipCards = document.querySelectorAll('.flip-card-inner');
+    flipCards.forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
     });
 });
-
-
