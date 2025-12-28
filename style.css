@@ -1,3 +1,4 @@
+/* ===== Body & Layout ===== */
 body {
     margin: 0;
     padding: 0;
@@ -126,12 +127,60 @@ button:hover {
 .subtext { font-size: 0.85rem; font-style: italic; opacity: 0.8; }
 .emojis { font-size: 1.2rem; margin-top: 10px; }
 
+/* ===== Gallery Container ===== */
 .gallery-container { width: 100%; max-width: 500px; text-align: center; }
 .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 20px; }
-.photo-card { background: white; padding: 10px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
-.photo-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; }
-.photo-card:hover { transform: scale(1.05) rotate(2deg); }
 
+/* ===== Flip Card Gallery ===== */
+.photo-card {
+    perspective: 1000px;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 15px;
+}
+
+.photo-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.flip-card-back {
+    background: #ff4d6d;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    transform: rotateY(180deg);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* ===== Other Styles ===== */
 .footer-note { font-size: 0.75rem; color: #a0a0a0; margin-top: 20px; }
 .cake-section img { width: 200px; }
 .love-letter-section { max-width: 600px; margin: 30px auto; text-align: left; }
