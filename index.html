@@ -7,6 +7,9 @@
 </head>
 <body>
 
+    <!-- Heart rain container -->
+    <div id="heart-container"></div>
+
     <!-- Audio (no autoplay, only plays after button click) -->
     <audio id="bg-music" src="song.mp3" loop></audio>
 
@@ -81,26 +84,49 @@
     </div>
 
     <script>
+        // Heart Rain
+        function createHearts() {
+            const container = document.getElementById('heart-container');
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+
+                // Random horizontal position
+                heart.style.left = Math.random() * 100 + 'vw';
+
+                // Random size
+                const size = Math.random() * 20 + 10;
+                heart.style.width = size + 'px';
+                heart.style.height = size + 'px';
+
+                // Random animation duration
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+
+                container.appendChild(heart);
+
+                // Remove heart after falling
+                setTimeout(() => heart.remove(), 5000);
+            }, 200);
+        }
+
+        // Start hearts on page load
+        window.onload = createHearts;
+
+        // Unlock gift and play music
         function checkDate() {
             const birthdate = document.getElementById("birthdate").value;
-
             if (!birthdate) {
                 alert("Please enter your birthdate!");
                 return;
             }
-
-            // Hide login screen and show main content
             document.getElementById("login-screen").style.display = "none";
             document.getElementById("main-content").style.display = "block";
 
-            // Play music only after pressing the button
             const music = document.getElementById("bg-music");
-            music.play().catch(err => {
-                console.log("Music will play after user interaction.");
-            });
+            music.play().catch(err => console.log("Music will play after interaction."));
         }
 
-        // Optional: function to unlock love letter
+        // Unlock Love Letter
         function unlockLetter() {
             const anniversary = document.getElementById("anniversaryDate").value;
             if (!anniversary) {
@@ -110,7 +136,7 @@
             document.getElementById("love-letter").style.display = "block";
         }
 
-        // Optional: blow candle function
+        // Blow Candle
         function blowCandle() {
             alert("✨ Candle blown! Make your wish! ✨");
         }
@@ -118,4 +144,3 @@
 
 </body>
 </html>
-
